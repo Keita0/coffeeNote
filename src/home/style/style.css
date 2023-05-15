@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+    padding: 5em;
+}
+
+.navbar {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: #0055FF;
+}
+
+.active-page {
+    font-weight: bold;
+}
+
+.navbar a {
+    display: block;
+    padding: 18px 0;
+    margin-right: 1.5em;
+}
+
+.navbar a:hover {
+    font-weight: 600;
+}
+
+.add-journal-btn {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+}
+.add-journal-btn a {
+    display: block;
+    background-color: #0055FF;
+    /* width: 0; */
+    padding: 1em 1.5em;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+}
