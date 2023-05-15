@@ -1,10 +1,30 @@
-body, html {
+html {
     margin: 0;
     padding: 5em;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+p, a, h2 {
+    color: #0055FF;
+}
+
+p, a {
+    font-size: 14px;
+}
+
 .navbar {
     display: flex;
+    color: #0055FF;
+    gap: 1.5em;
+    /* padding: 18px 0; */
+}
+
+.navbar * {
+    cursor: pointer;
+    margin: 18px 0;
 }
 
 a {
@@ -18,11 +38,10 @@ a {
 
 .navbar a {
     display: block;
-    padding: 18px 0;
-    margin-right: 1.5em;
+    /* padding: 18px 0; */
 }
 
-.navbar a:hover {
+.navbar *:hover {
     font-weight: 600;
 }
 
@@ -31,12 +50,42 @@ a {
     justify-content: start;
     align-items: flex-start;
 }
+
 .add-journal-btn a {
     display: block;
     background-color: #0055FF;
-    /* width: 0; */
     padding: 1em 1.5em;
     border-radius: 8px;
     font-weight: bold;
     color: white;
+    margin: 1.5em 0;
+}
+
+.stats-section {
+    padding: 15px 30px;
+    border: 1px solid #0055FF;
+}
+
+.stats-content {
+    display: flex;
+    row-gap: 1em;
+    column-gap: 38px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+.stat div{
+    /* width: 10.6em; */
+    height: 191px;
+}
+
+.stat strong {
+    font-size: 4em;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 27.71px;
 }
