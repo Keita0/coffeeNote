@@ -12,14 +12,14 @@
 </head>
 
 <body>
-  <form action="journal.php" method="post">
+  <form class="" action="journal.php" method="post" autocomplete="off" enctype="multipart/form-data"></form>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 mx-auto mt-3">
           <div class="card">
             <div class="card-body">
               <div class="form-group">
-                <input type="file" class="form-control-file" id="image-upload" onchange="updateImagePreview()" name="image">
+                <input type="file" class="form-control-file" id="image-upload" onchange="updateImagePreview()" name="image" accept=".jpg, .jpeg, .png" value="">
               </div>
               <div class="form-group">
                 <img id="image-preview" src="https://via.placeholder.com/400" class="img-thumbnail mx-auto d-block"
@@ -144,21 +144,21 @@
       <div class="row justify-content-center">
         <div class="col-md-2 mb-3 mt-3">
           <div class="text-left">
-            <h5>Water Amount</h5>
-          </div>
-          <input type="text" id="input-water" class="form-control" name="water">
-        </div>
-        <div class="col-md-2 mb-3 mt-3">
-          <div class="text-left">
             <h5>Coffee Amount</h5>
           </div>
           <input type="text" id="input-coffee" class="form-control" name="coffee">
         </div>
         <div class="col-md-2 mb-3 mt-3">
           <div class="text-left">
+            <h5>Water Amount</h5>
+          </div>
+          <input type="text" id="input-water" class="form-control" name="water">
+        </div>
+        <div class="col-md-2 mb-3 mt-3">
+          <div class="text-left">
             <h5>Ratio</h5>
           </div>
-          <input type="text" id="input-ratio" class="form-control" name="cwratio">
+          <input type="text" id="input-ratio" class="form-control" name="cwratio" readonly>
         </div>
       </div>
     </div>
@@ -186,8 +186,6 @@
       </div>
     </div>
   </form>
-
-
 </body>
 
 </html>
