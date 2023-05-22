@@ -11,7 +11,13 @@
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
         <a href="#">Journal</a>
-        <a href="#">Account</a>
+        <?php
+            if (isset($_SESSION["user"])) {
+                <a href="#">$_SESSION["name"]</a>
+             } else {
+                 <a href="#">Account</a>
+             }
+        ?>
     </section>
     <hr style="color: #D1DEFD;">
 
