@@ -8,21 +8,21 @@
     <title>CoffeeNote - Home</title>
 </head> 
 <body>
+    <?php
+        $thirdNavBar = "Account";
+        if (isset($_SESSION["user"])) {
+            $thirdNavBar = $_SESSION["name"];
+         }
+    ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
-        <a href="#">Journal</a>
-        <?php
-            if (isset($_SESSION["user"])) {
-                <a href="#">$_SESSION["name"]</a>
-             } else {
-                 <a href="#">Account</a>
-             }
-        ?>
+        <a href="../list">Journal</a>
+        <a href="../registerlogin/login-register"><?php echo $thirdNavBar; ?></a>
     </section>
     <hr style="color: #D1DEFD;">
 
     <div class="add-journal-btn">
-        <a href="#">Add New Journal</a>
+        <a href="../journal/journal.html">Add New Journal</a>
     </div>
 
     <section class="stats-section">
