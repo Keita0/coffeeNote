@@ -1,3 +1,8 @@
+<?php
+    $sql = "SELECT * FROM journal";
+    $result = mysqli_query($conn, $sql);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
