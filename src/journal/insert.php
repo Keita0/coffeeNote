@@ -20,7 +20,7 @@ if (!$conn) {
 </head>
 
 <body>
-  <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data"></form>
+  <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 mx-auto my-3">
@@ -101,7 +101,7 @@ if (!$conn) {
         <div class="text-left">
           <h5>Varietals</h5>
         </div>
-        <input type="text" id="input-varietal" class="form-control" name="varietal">
+        <input type="number" id="input-varietal" class="form-control" name="varietal">
       </div>
     </div>
   </div>
@@ -249,6 +249,7 @@ if (!$conn) {
   if (isset($_POST['submit'])) {
     $image_url = $_POST['image'] ?? '';
     $aroma = $_POST['aroma'] ?? '';
+    $varietal = $_POST['varietal'] ?? '';
     $flavor = $_POST['flavor'] ?? '';
     $altitude = $_POST['altitude'] ?? '';
     $roaster = $_POST['roaster'] ?? '';
@@ -266,8 +267,8 @@ if (!$conn) {
     $extractiontime = $_POST['extractiontime'] ?? '';
     $rating = $_POST['rating'] ?? '';
 
-    $sql = "INSERT INTO journal (image_url, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, cwratio, method, extractiontime, rating)
-  VALUES ('$image_url', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
+    $sql = "INSERT INTO journal (image_url, varietal_id, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating)
+    VALUES ('$image_url', '$varietal ', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
 
     if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
