@@ -10,9 +10,9 @@
 <body>
     <?php
         $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "myDB";
+        $username = "root";
+        $password = "";
+        $dbname = "aol";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
         if ($conn->connect_error) {
@@ -48,7 +48,7 @@
                     <p>Amount of Coffee tried</p>
                     <strong>
                         <?php
-                            $sql = "SELECT COUNT(*) AS coffeeNum FROM journal";
+                            $sql = "SELECT COUNT(*) AS coffeeNum FROM journal WHERE user_id = " . $_SESSION["userId"];
                             $result = $conn->query($sql);
 
                             $row = 0;
@@ -68,7 +68,7 @@
                     <p>Average Rating</p>
                     <strong>
                         <?php
-                            $sql = "SELECT AVG(rating) AS ratingAvg FROM journal";
+                            $sql = "SELECT AVG(rating) AS ratingAvg FROM journal WHERE user_id = " . $_SESSION["userId"];
                             $result = $conn->query($sql);
 
                             $ratingRow = 0;
@@ -87,7 +87,7 @@
                     <p>New Journal This Month</p>
                     <strong>
                         <?php
-                            $sql = "SELECT COUNT(*) AS journalCount FROM journal WHERE MONTH(created_at) = MONTH(CURRENT_TIMESTAMP)";
+                            $sql = "SELECT COUNT(*) AS journalCount FROM journal WHERE MONTH(created_at) = MONTH(CURRENT_TIMESTAMP) AND WHERE user_id = " . $_SESSION["userId"];
                             $result = $conn->query($sql);
 
                             $jrow = 0;
@@ -106,7 +106,7 @@
                     <p>Roaster Count</p>
                     <strong>
                         <?php
-                            $sql = "SELECT COUNT(roaster) AS journalCount FROM journal";
+                            $sql = "SELECT COUNT(roaster) AS journalCount FROM journal WHERE user_id = " . $_SESSION["userId"];
                             $result = $conn->query($sql);
 
                             $rrow = 0;
