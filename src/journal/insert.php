@@ -1,6 +1,6 @@
 <?php
 // connection to database
-$conn = mysqli_connect("localhost", "root", "", "testse");
+$conn = mysqli_connect("localhost", "root", "", "coffeenote");
 
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
