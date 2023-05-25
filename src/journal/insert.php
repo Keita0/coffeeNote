@@ -1,6 +1,6 @@
 <?php
 // connection to database
-$conn = mysqli_connect("localhost", "root", "", "coffeenote");
+$conn = mysqli_connect("localhost", "root", "", "testse");
 
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
@@ -34,6 +34,16 @@ if (!$conn) {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="container justify-content-center">
+    <div class="row">
+      <div class="col-md-6 mx-auto my-3">
+        <div class="col-lg-4 text-left">
+          <h5>Name</h5>
+        </div>
+        <input type="text" id="input-name" class="form-control" name="name">
       </div>
     </div>
   </div>
@@ -249,6 +259,7 @@ if (!$conn) {
   if (isset($_POST['submit'])) {
     $image_url = $_POST['image'] ?? '';
     $aroma = $_POST['aroma'] ?? '';
+    $name = $_POST['name'] ?? '';
     $varietal = $_POST['varietal'] ?? '';
     $flavor = $_POST['flavor'] ?? '';
     $altitude = $_POST['altitude'] ?? '';
@@ -267,8 +278,8 @@ if (!$conn) {
     $extractiontime = $_POST['extractiontime'] ?? '';
     $rating = $_POST['rating'] ?? '';
 
-    $sql = "INSERT INTO journal (image_url, varietal_id, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating)
-    VALUES ('$image_url', '$varietal ', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
+    $sql = "INSERT INTO journal (image_url, varietal_id, name, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating)
+    VALUES ('$image_url', '$varietal ', '$name', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
 
     if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
