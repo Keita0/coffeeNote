@@ -100,21 +100,42 @@ if (!$conn) {
     </div>
   </div>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-3 my-3">
-        <div class="text-left">
-          <h5>Altitude</h5>
+      <div class="row justify-content-center">
+        <div class="col-md-3 my-3">
+          <div class="text-left">
+            <h5>Altitude</h5>
+          </div>
+          <input type="text" id="input-altitude" class="form-control" name="altitude">
         </div>
-        <input type="text" id="input-altitude" class="form-control" name="altitude">
-      </div>
-      <div class="col-md-3 my-3">
-        <div class="text-left">
-          <h5>Varietals</h5>
+        <div class="col-md-3 my-3">
+          <div class="text-left">
+            <h5>Varietals</h5>
+          </div>
+          <select id="input-varietal" class="form-control" name="varietal" placeholder="Varietal">
+            <option value="" disabled selected>Select varietal</option>
+            <option value="1">Coffea arabica</option>
+            <option value="2">Typica</option>
+            <option value="3">Caturra</option>
+            <option value="4">Coffea liberica</option>
+            <option value="5">Geisha</option>
+            <option value="6">Robusta coffee</option>
+            <option value="7">Maragogipe Coffee</option>
+            <option value="8">Catimor</option>
+            <option value="9">Pacas</option>
+            <option value="10">Kent</option>
+            <option value="11">Ethiopian Heirloom</option>
+            <option value="12">Jamaican Blue Mountain Coffee</option>
+            <option value="13">Tabi</option>
+            <option value="14">Coffea liberica var. dewevrei</option>
+            <option value="15">Acaia</option>
+            <option value="16">S795 coffee</option>
+            <option value="17">Yellow Icatu</option>
+            <option value="18">Obata</option>
+            <option value="19">Sl 28 and sl 34</option>
+          </select>
         </div>
-        <input type="number" id="input-varietal" class="form-control" name="varietal">
       </div>
     </div>
-  </div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-3 my-3">
