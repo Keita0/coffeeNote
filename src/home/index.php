@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    include 'repository/journalRepository.php';
+    session_start(); 
+
+    $_SESSION["userId"] = 1;
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +20,12 @@
         $password = "";
         $dbname = "aol";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        $journalRepo = new JournalRepository($servername, $username, $password, $dbname);
 
         $thirdNavBar = "Account";
         if (isset($_SESSION["user"])) {
             $thirdNavBar = $_SESSION["name"];
-         }
+        }
     ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
@@ -47,18 +50,7 @@
                 <div>
                     <p>Amount of Coffee tried</p>
                     <strong>
-                        <?php
-                            $sql = "SELECT COUNT(*) AS coffeeNum FROM journal WHERE user_id = " . $_SESSION["userId"];
-                            $result = $conn->query($sql);
-
-                            $row = 0;
-
-                            if ($result->num_rows > 0) {
-                                $row = $result->fetch_assoc();
-                            }
-
-                            echo $row["coffeeNum"];
-                        ?>
+                        <?php echo $journalRepo->getNumberOfCoffeeTried($_SESSION["userId"]); ?>
                     </strong>
                 </div>
 
@@ -67,18 +59,7 @@
                 <div>
                     <p>Average Rating</p>
                     <strong>
-                        <?php
-                            $sql = "SELECT AVG(rating) AS ratingAvg FROM journal WHERE user_id = " . $_SESSION["userId"];
-                            $result = $conn->query($sql);
-
-                            $ratingRow = 0;
-
-                            if ($result->num_rows > 0) {
-                                $ratingRow = $result->fetch_assoc();
-                            }
-
-                            echo $ratingRow["ratingAvg"];
-                        ?>
+                        <?php echo $journalRepo->getAverageRating($_SESSION["userId"]); ?>
                     </strong>
                 </div>
             </div>
@@ -86,18 +67,7 @@
                 <div>
                     <p>New Journal This Month</p>
                     <strong>
-                        <?php
-                            $sql = "SELECT COUNT(*) AS journalCount FROM journal WHERE MONTH(created_at) = MONTH(CURRENT_TIMESTAMP) AND WHERE user_id = " . $_SESSION["userId"];
-                            $result = $conn->query($sql);
-
-                            $jrow = 0;
-
-                            if ($result->num_rows > 0) {
-                                $jrow = $result->fetch_assoc();
-                            }
-
-                            echo $jrow["journalCount"];
-                        ?>
+                        <?php echo $journalRepo->getJournalCountThisMonth($_SESSION["userId"]); ?>
                     </strong>
                 </div>
             </div>
@@ -106,16 +76,7 @@
                     <p>Roaster Count</p>
                     <strong>
                         <?php
-                            $sql = "SELECT COUNT(roaster) AS journalCount FROM journal WHERE user_id = " . $_SESSION["userId"];
-                            $result = $conn->query($sql);
-
-                            $rrow = 0;
-
-                            if ($result->num_rows > 0) {
-                                $rrow = $result->fetch_assoc();
-                            }
-
-                            echo $rrow["journalCount"];
+                            echo $journalRepo->getRoasterCount($_SESSION["userId"]);
                         ?>
                     </strong>
                 </div>
@@ -127,9 +88,10 @@
     <section class="recent-journal">
         <h2>Your Most Recent Journal</h2>
         <div class="thumbnails">
-            <img src="s" alt="thumbnail">
-            <img src="a" alt="thumbnail">
-            <img src="s" alt="thumbnail">
+            <?php $thumbnails = $journalRepo->getJournalThumbnails($_SESSION["userId"]); ?>
+            <?php foreach($thumbnails as $thumbnail): ?>
+            <img src=<?= $thumbnail; ?> alt="thumbnail" height="100%" width="180em">
+            <?php endforeach; ?>
         </div>
     </section>
 </body>
