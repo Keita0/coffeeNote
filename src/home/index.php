@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    include 'repository/journalRepository.php';
+    session_start(); 
+
+    $_SESSION["userId"] = 1;
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +15,17 @@
 </head> 
 <body>
     <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "aol";
+
+        $journalRepo = new JournalRepository($servername, $username, $password, $dbname);
+
         $thirdNavBar = "Account";
         if (isset($_SESSION["user"])) {
             $thirdNavBar = $_SESSION["name"];
-         }
+        }
     ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
@@ -36,26 +49,36 @@
             <div class="stat">
                 <div>
                     <p>Amount of Coffee tried</p>
-                    <strong>100</strong>
+                    <strong>
+                        <?php echo $journalRepo->getNumberOfCoffeeTried($_SESSION["userId"]); ?>
+                    </strong>
                 </div>
 
             </div>
             <div class="stat">
                 <div>
                     <p>Average Rating</p>
-                    <strong>100</strong>
+                    <strong>
+                        <?php echo $journalRepo->getAverageRating($_SESSION["userId"]); ?>
+                    </strong>
                 </div>
             </div>
             <div class="stat">
                 <div>
                     <p>New Journal This Month</p>
-                    <strong>100</strong>
+                    <strong>
+                        <?php echo $journalRepo->getJournalCountThisMonth($_SESSION["userId"]); ?>
+                    </strong>
                 </div>
             </div>
             <div class="stat">
                 <div>
                     <p>Roaster Count</p>
-                    <strong>100</strong>
+                    <strong>
+                        <?php
+                            echo $journalRepo->getRoasterCount($_SESSION["userId"]);
+                        ?>
+                    </strong>
                 </div>
             </div>
         </div>
@@ -65,9 +88,10 @@
     <section class="recent-journal">
         <h2>Your Most Recent Journal</h2>
         <div class="thumbnails">
-            <img src="s" alt="thumbnail">
-            <img src="a" alt="thumbnail">
-            <img src="s" alt="thumbnail">
+            <?php $thumbnails = $journalRepo->getJournalThumbnails($_SESSION["userId"]); ?>
+            <?php foreach($thumbnails as $thumbnail): ?>
+            <img src=<?= $thumbnail; ?> alt="thumbnail" height="100%" width="180em">
+            <?php endforeach; ?>
         </div>
     </section>
 </body>

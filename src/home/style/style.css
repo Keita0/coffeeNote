@@ -87,5 +87,6 @@ a {
 
 .thumbnails {
     display: flex;
+    
     gap: 27.71px;
 }
