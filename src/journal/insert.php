@@ -54,9 +54,9 @@ if (isset($_POST['submit'])) {
   }
 
   $cwratio = 0;
-
-  $sql = "INSERT INTO journal (image_url, varietal_id, name, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating)
-  VALUES ('$image_url', '$varietal ', '$name', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
+  $userId = $_SESSION['userId'];
+  $sql = "INSERT INTO journal (image_url, varietal_id, name, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating, user_id)
+  VALUES ('$image_url', '$varietal ', '$name', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating', $userId)";
 
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
