@@ -1,7 +1,10 @@
 <?php
 // connection to database
 include_once "../connection.php";
-
+if (isset($_SESSION["user"])) {
+  header("Location: ../../home/index.php");
+  die();
+}
 
 if (!isset($_GET['id'])){
     header("Location: index.php");
