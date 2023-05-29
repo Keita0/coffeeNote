@@ -18,7 +18,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "aol";
+        $dbname = "coffee_note";
 
         $journalRepo = new JournalRepository($servername, $username, $password, $dbname);
 
