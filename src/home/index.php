@@ -4,7 +4,9 @@
     include 'repository/journalRepository.php';
     session_start(); 
 
-    $_SESSION["userId"] = 1;
+    if (!isset($_SESSION["user"])) {
+        $_SESSION["userId"] = 1;
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -21,16 +23,18 @@
         $dbname = "coffee_note";
 
         $journalRepo = new JournalRepository($servername, $username, $password, $dbname);
-
         $thirdNavBar = "Account";
-        if (isset($_SESSION["user"])) {
+        if (isset($_SESSION["name"])) {
             $thirdNavBar = $_SESSION["name"];
+        } else {
+            header("Location: ../registerlogin/login-register/logout.php");
+            die();
         }
     ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
         <a href="../list">Journal</a>
-        <a href="../registerlogin/login-register"><?php echo $thirdNavBar; ?></a>
+        <a href="../registerlogin/login-register/login.php"><?php echo $thirdNavBar; ?></a>
     </section>
     <hr style="color: #D1DEFD;">
 
