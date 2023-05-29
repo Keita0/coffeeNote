@@ -18,7 +18,7 @@ if (isset($_SESSION["user"])) {
     <div class="container">
         <?php
         if (isset($_POST["submit"])) {
-            $fullName = $_POST["fullname"];
+            $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
             $passwordRepeat = $_POST["repeat_password"];
@@ -27,7 +27,7 @@ if (isset($_SESSION["user"])) {
 
             $errors = array();
            
-            if (empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
+            if (empty($username) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
                 array_push($errors,"All fields are required");
             }
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -52,24 +52,24 @@ if (isset($_SESSION["user"])) {
                 }
             }else{
                 
-                $sql = "INSERT INTO users (full_name, email, password) VALUES ( ?, ?, ? )";
+                $sql = "INSERT INTO users (username, email, password) VALUES ( ?, ?, ? )";
                 $stmt = mysqli_stmt_init($conn);
                 $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                 if ($prepareStmt) {
-                    mysqli_stmt_bind_param($stmt,"sss",$fullName, $email, $passwordHash);
+                    mysqli_stmt_bind_param($stmt,"sss",$username, $email, $passwordHash);
                     mysqli_stmt_execute($stmt);
                     echo "<div class='alert alert-success'>You are registered successfully.</div>";
                 }else{
                     die("Something went wrong");
                 }
             }
-          
 
+            
         }
         ?>
         <form action="registration.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Full Name:">
+                <input type="text" class="form-control" name="username" placeholder="Username:">
             </div>
             <div class="form-group">
                 <input type="email" class="form-control" name="email" placeholder="Email:">
@@ -85,8 +85,8 @@ if (isset($_SESSION["user"])) {
             </div>
         </form>
         <div>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
-      </div>
+            <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
+        </div>
     </div>
 </body>
 </html>
