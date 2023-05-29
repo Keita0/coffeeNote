@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (isset($_SESSION["user"])) {
+  header("Location: ../../home/index.php");
+  die();
+}
 // connection to database
 include_once "../connection.php";
 
