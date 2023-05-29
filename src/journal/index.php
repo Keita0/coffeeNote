@@ -1,6 +1,11 @@
 <?php
+    if (!isset($_SESSION["user"])) {
+        header("Location: ../home/index.php");
+        die();
+    }
+
     include_once('../connection.php');
-    $sql = "SELECT * FROM journal LEFT JOIN varietal ON journal.varietal_id = varietal.varietal_id";
+    $sql = "SELECT * FROM journal LEFT JOIN varietal ON journal.varietal_id = varietal.varietal_id WHERE user_id = ".$_SESSION['userId'];
     $result = mysqli_query($conn, $sql);
     // var_dump($result);
 ?>
