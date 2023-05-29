@@ -28,8 +28,6 @@ if (isset($_SESSION["user"])) {
                 if (password_verify($password, $user["password"])) {
                     session_start();
                     $_SESSION["user"] = "yes";
-                    $_SESSION["userId"] = $user["id"];
-                    $_SESSION["name"] = $user["name"];
                     header("Location: index.php");
                     die();
                 }else{
