@@ -35,14 +35,14 @@
     ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
-        <a href="../list">Journal</a>
+        <a href="../journal/insert.php">Journal</a>
         <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
         <a href="../"></a>
     </section>
     <hr style="color: #D1DEFD;">
 
     <div class="add-journal-btn">
-        <a href="../journal/journal.html">Add New Journal</a>
+        <a href="../journal/insert.php">Add New Journal</a>
     </div>
 
     <section class="stats-section">

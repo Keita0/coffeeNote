@@ -66,6 +66,12 @@ if (isset($_POST['submit'])) {
   }
 }
 
+$thirdNavBar = "Account";
+        $login = "../registerlogin/login-register/login.php";
+        if (isset($_SESSION["name"])) {
+            $thirdNavBar = $_SESSION["name"];
+        }
+
 mysqli_close($conn);
 
 ?>
@@ -85,6 +91,13 @@ mysqli_close($conn);
 
 <body>
   <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
+  <section class="navbar">
+        <a href="#" class="active-page">Home</a>
+        <a href="../list">Journal</a>
+        <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
+        <a href="../"></a>
+    </section>
+    <hr style="color: #D1DEFD;">
   <div class="container">
     <div class="row py-3">
         <div class="col-md-4">
@@ -223,13 +236,13 @@ mysqli_close($conn);
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-2 my-3">
+      <div class="col-md-3 my-3">
         <div class="text-left">
           <h5>Coffee Amount</h5>
         </div>
         <input type="text" id="input-coffee" class="form-control" name="coffee">
       </div>
-      <div class="col-md-2 my-3">
+      <div class="col-md-3 my-3">
         <div class="text-left">
           <h5>Water Amount</h5>
         </div>

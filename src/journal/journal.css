@@ -88,3 +88,29 @@ a {
     
     gap: 27.71px;
 }
+
+.navbar {
+    display: flex;
+    color: #0055FF;
+    gap: 1.5em;
+    justify-content: flex-start;
+    /* padding: 18px 0; */
+}
+
+.navbar * {
+    cursor: pointer;
+    margin: 18px 0;
+}
+
+.active-page {
+    font-weight: bold;
+}
+
+.navbar a {
+    display: block;
+    /* padding: 18px 0; */
+}
+
+.navbar *:hover {
+    font-weight: 600;
+}
