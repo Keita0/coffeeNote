@@ -1,5 +1,7 @@
 <?php
 // connection to database
+session_start();
+
 include_once "../connection.php";
 if (isset($_SESSION["user"])) {
   header("Location: ../../home/index.php");
