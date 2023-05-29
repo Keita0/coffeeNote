@@ -98,8 +98,8 @@ mysqli_close($conn);
 <body>
   <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
   <section class="navbar">
-        <a href="#" class="active-page">Home</a>
-        <a href="../list">Journal</a>
+        <a href="../home/index.php">Home</a>
+        <a href="#" class="active-page">Journal</a>
         <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
         <a href="../"></a>
     </section>

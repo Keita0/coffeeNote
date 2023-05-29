@@ -35,7 +35,7 @@
     ?>
     <section class="navbar">
         <a href="#" class="active-page">Home</a>
-        <a href="../journal/insert.php">Journal</a>
+        <a href="../journal/index.php">Journal</a>
         <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
         <a href="../"></a>
     </section>

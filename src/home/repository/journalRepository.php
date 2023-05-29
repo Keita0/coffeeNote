@@ -86,7 +86,7 @@
     
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        array_push($arr, empty($row['image_url'] ? "https://images3.alphacoders.com/606/606500.jpg" : $row['image_url']));
+                        array_push($arr, empty($row['image_url']) ? "https://images3.alphacoders.com/606/606500.jpg" : $row['image_url']);
                     }
                 } else {
                     $arr = array($defaultImage, $defaultImage, $defaultImage);

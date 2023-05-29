@@ -3,8 +3,8 @@
 session_start();
 
 include_once "../connection.php";
-if (isset($_SESSION["user"])) {
-  header("Location: ../../home/index.php");
+if (!isset($_SESSION["user"])) {
+  header("Location: ../home/index.php");
   die();
 }
 
@@ -103,6 +103,12 @@ $sql = "SELECT * FROM journal WHERE id = ".$_GET['id'];
 $journals = mysqli_query($conn, $sql);
 $journal = mysqli_fetch_assoc($journals);
 
+$thirdNavBar = "Account";
+        $login = "../registerlogin/login-register/login.php";
+        if (isset($_SESSION["name"])) {
+            $thirdNavBar = $_SESSION["name"];
+        }
+
 mysqli_close($conn);
 
 ?>
@@ -122,6 +128,12 @@ mysqli_close($conn);
 
 <body>
   <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
+  <section class="navbar">
+        <a href="../home/index.php">Home</a>
+        <a href="#" class="active-page">Journal</a>
+        <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
+        <a href="../"></a>
+    </section>
   <div class="container">
     <div class="row py-3">
         <div class="col-md-4">
@@ -268,13 +280,13 @@ mysqli_close($conn);
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-2 my-3">
+      <div class="col-md-3 my-3">
         <div class="text-left">
           <h5>Coffee Amount</h5>
         </div>
         <input type="text" id="input-coffee" class="form-control" name="coffee" value="<?= $journal['coffee']; ?>">
       </div>
-      <div class="col-md-2 my-3">
+      <div class="col-md-3 my-3">
         <div class="text-left">
           <h5>Water Amount</h5>
         </div>
