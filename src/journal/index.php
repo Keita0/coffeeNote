@@ -31,7 +31,7 @@
                     while($row = mysqli_fetch_assoc($result)) {
 
             ?>
-                <a href="edit.php?<?= $row['id'];  ?>" class="text-decoration-none" style="color: inherit;">
+                <a href="edit.php?id=<?= $row['id'];  ?>" class="text-decoration-none" style="color: inherit;">
                     <div class="card mb-3 border border-primary border-3">
                         <div class="row g-0">
                             <div class="col-md-3">

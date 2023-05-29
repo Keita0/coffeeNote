@@ -53,6 +53,8 @@ if (isset($_POST['submit'])) {
       echo "Failed to upload your image.";
   }
 
+  $cwratio = 0;
+
   $sql = "INSERT INTO journal (image_url, varietal_id, name, aroma, flavor, altitude, roaster, roastdate, origin, region, farm, lot, note, coffee, water, ratio, method, extract_time, rating)
   VALUES ('$image_url', '$varietal ', '$name', '$aroma', '$flavor', '$altitude', '$roaster', '$roastdate', '$origin', '$region', '$farm', '$lot', '$note', '$coffee', '$water', '$cwratio', '$method', '$extractiontime', '$rating')";
 
@@ -84,6 +86,11 @@ mysqli_close($conn);
 <body>
   <form class="" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
   <div class="container">
+    <div class="row py-3">
+        <div class="col-md-4">
+            <a href="index.php" class="btn btn-danger">Back</a>
+        </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-md-6 mx-auto my-3">
         <div class="card">
@@ -92,7 +99,7 @@ mysqli_close($conn);
               <input type="file" class="form-control-file" id="image-upload" onchange="updateImagePreview()" name="image" accept=".jpg, .jpeg, .png" value="">
             </div>
             <div class="form-group">
-              <img id="image-preview" src="https://via.placeholder.com/400" class="img-thumbnail mx-auto d-block" alt="Placeholder Image" style="width: 20rem; height: 20rem;">
+              <img id="image-preview" src="../images/default.avif" class="img-thumbnail mx-auto d-block" alt="Placeholder Image" style="width: 20rem; height: 20rem;object-fit: cover">
             </div>
           </div>
         </div>
@@ -141,7 +148,7 @@ mysqli_close($conn);
         <div class="text-left">
           <h5>Roast Date</h5>
         </div>
-        <input type="datetime-local" id="input-roast-date" class="form-control" name="roastdate">
+        <input type="date" id="input-roast-date" class="form-control" name="roastdate">
       </div>
     </div>
   </div>
@@ -228,12 +235,12 @@ mysqli_close($conn);
         </div>
         <input type="text" id="input-water" class="form-control" name="water">
       </div>
-      <div class="col-md-2 my-3">
+      <!-- <div class="col-md-2 my-3">
         <div class="text-left">
           <h5>Ratio</h5>
         </div>
         <input type="text" id="input-ratio" class="form-control" name="cwratio" readonly>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="container">
