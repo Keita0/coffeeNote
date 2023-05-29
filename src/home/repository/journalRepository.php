@@ -74,7 +74,7 @@
         public function getJournalThumbnails(int $userId): array {
             try {
                 //code...
-                $stmt = $this->conn->prepare("SELECT image_url FROM journal WHERE user_id = ? ORDER BY `created_at` DESC LIMIT 3");
+                $stmt = $this->conn->prepare("SELECT * FROM journal WHERE user_id = ? ORDER BY `created_at` DESC LIMIT 3");
                 $stmt->bind_param("i", $userId);
                 $stmt->execute();
     

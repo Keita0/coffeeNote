@@ -97,7 +97,7 @@
         <div class="thumbnails">
             <?php $thumbnails = $journalRepo->getJournalThumbnails($_SESSION["userId"]); ?>
             <?php foreach($thumbnails as $thumbnail): ?>
-            <img src=<?= $thumbnail; ?> alt="thumbnail" height="100%" width="180em">
+            <img src="<?= $thumbnail; ?>" alt="thumbnail" height="100%" width="180em">
             <?php endforeach; ?>
         </div>
     </section>
