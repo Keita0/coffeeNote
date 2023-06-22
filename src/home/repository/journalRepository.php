@@ -23,7 +23,7 @@
         }
 
         public function getAverageRating(int $userId): int {
-            $stmt = $this->conn->prepare("SELECT AVG(rating) AS ratingAvg FROM journal WHERE user_id = ?");
+            $stmt = $this->conn->prepare("SELECT AVG(rating)+1 AS ratingAvg FROM journal WHERE user_id = ?");
             $stmt->bind_param("i", $userId);
             $stmt->execute();
 
@@ -95,6 +95,7 @@
                 return $arr;
             } catch (\Throwable $th) {
                 echo $th;
+                return null;
             }
         }
     }

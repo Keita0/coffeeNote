@@ -1,12 +1,32 @@
-body{
-    padding:50px;
+body {
+    padding: 50px;
 }
-.container{
+
+.container {
     max-width: 600px;
-    margin:0 auto;
-    padding:50px;
+    margin: 0 auto;
+    padding: 50px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.form-group{
-    margin-bottom:30px;
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #6F4E37;
+    border-color: #6F4E37;
+    outline: #6F4E37;
+}
+
+.btn-primary:hover {
+    background-color: #9b7051;
+    border-color: #9b7051;
+    outline: #6F4E37;
+}
+
+.btn-primary:active {
+    background-color: rgb(170, 123, 89) !important;
+    border-color: #9b7051 !important;
+    outline: #6F4E37 !important;
 }

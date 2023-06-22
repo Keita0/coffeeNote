@@ -26,7 +26,8 @@
         $thirdNavBar = "Account";
         $login = "../registerlogin/login-register/login.php";
         if (isset($_SESSION["name"])) {
-            $thirdNavBar = $_SESSION["name"];
+            // $thirdNavBar = $_SESSION["name"];
+            $thirdNavBar = "Logout";
             $login = "../registerlogin/login-register/logout.php";
         } else {
             header("Location: ../registerlogin/login-register/logout.php");
@@ -47,9 +48,7 @@
 
     <section class="stats-section">
         <div class="navbar">
-            <p class="active-page">Weekly</a>
-            <p>Monthly</a>
-            <p>All</p>
+            <p class="active-page">Weekly Recap</a>
         </div>
         <hr style="color: #D1DEFD;">
         <div class="stats-content">
@@ -97,7 +96,7 @@
         <div class="thumbnails">
             <?php $thumbnails = $journalRepo->getJournalThumbnails($_SESSION["userId"]); ?>
             <?php foreach($thumbnails as $thumbnail): ?>
-            <img src="<?= $thumbnail; ?>" alt="thumbnail" height="100%" width="180em">
+                <img src="<?= $thumbnail; ?>" alt="thumbnail" height="250px" width="250px">
             <?php endforeach; ?>
         </div>
     </section>

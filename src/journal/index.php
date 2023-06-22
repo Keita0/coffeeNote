@@ -14,7 +14,7 @@ session_start();
     $thirdNavBar = "Account";
     $login = "../registerlogin/login-register/login.php";
     if (isset($_SESSION["name"])) {
-        $thirdNavBar = $_SESSION["name"];
+        $thirdNavBar = "Logout";
         $login = "../registerlogin/login-register/logout.php";
     } else {
         header("Location: ../registerlogin/login-register/logout.php");
@@ -45,7 +45,7 @@ session_start();
         <div class="px-5">
             <div class="row py-3">
                 <div class="col-md-4">
-                    <a href="insert.php" class="btn btn-primary">Create New Note</a>
+                    <a href="insert.php" class=" btn btn-primary ">Create New Note</a>
                 </div>
             </div>
 
