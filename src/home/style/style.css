@@ -8,7 +8,7 @@ body {
     padding: 0;
 }
 p, a, h2 {
-    color: #0055FF;
+    color: #6F4E37;
 }
 
 p, a {
@@ -17,7 +17,7 @@ p, a {
 
 .navbar {
     display: flex;
-    color: #0055FF;
+    color: #6F4E37;
     gap: 1.5em;
     /* padding: 18px 0; */
 }
@@ -29,7 +29,7 @@ p, a {
 
 a {
     text-decoration: none;
-    color: #0055FF;
+    color: #6F4E37;
 }
 
 .active-page {
@@ -53,7 +53,7 @@ a {
 
 .add-journal-btn a {
     display: block;
-    background-color: #0055FF;
+    background-color: #6F4E37;
     padding: 1em 1.5em;
     border-radius: 8px;
     font-weight: bold;
@@ -63,7 +63,7 @@ a {
 
 .stats-section {
     padding: 15px 30px;
-    border: 1px solid #0055FF;
+    border: 1px solid #6F4E37;
 }
 
 .stats-content {
@@ -73,8 +73,6 @@ a {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-
 
 .stat div{
     /* width: 10.6em; */

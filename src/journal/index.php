@@ -12,29 +12,35 @@ session_start();
     // var_dump($result);
 
     $thirdNavBar = "Account";
-        $login = "../registerlogin/login-register/login.php";
-        if (isset($_SESSION["name"])) {
-            $thirdNavBar = $_SESSION["name"];
-        }
+    $login = "../registerlogin/login-register/login.php";
+    if (isset($_SESSION["name"])) {
+        $thirdNavBar = $_SESSION["name"];
+        $login = "../registerlogin/login-register/logout.php";
+    } else {
+        header("Location: ../registerlogin/login-register/logout.php");
+        die();
+    }
 ?>
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List Coffee Journal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="journal.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  </head>
-  <body>
-  <section class="navbar">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>List Coffee Journal</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="journal.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </head>
+    <body>
+    <section class="navbar">
         <a href="../home/index.php">Home</a>
         <a href="#" class="active-page">Journal</a>
         <a href= <?=$login;?>><?php echo $thirdNavBar; ?></a>
         <a href="../"></a>
     </section>
+    <hr style="color: #D1DEFD;">
+    
     <div class="container pt-2 ">
         <div class="px-5">
             <div class="row py-3">
